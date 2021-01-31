@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html >
+<!--From https://codepen.io/frytyler/pen/EGdtg-->
+<head>
+  <meta charset="UTF-8">
+  <title>ML API</title>
+  <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+  
+</head>
+
+<body>
+ <div class="login">
+	<h1>Predict Spotify Skips</h1>
+
+     <!-- Main Input For Receiving Query to our ML -->
+    <form action="{{ url_for('predict')}}" method="post">
+    	<input type="text" name="session_p" placeholder="session_position" required="required" />
+		<input type="text" name="session_l" placeholder="session_length" required="required" />
+		<input type="text" name="no_pause" placeholder="no_pause_before_play" required="required" />
+		<input type="text" name="long_pause" placeholder="long_pause_before_play" required="required" />
+		<input type="text" name="acoustic" placeholder="acousticness" required="required" />
+		<input type="text" name="live" placeholder="liveness" required="required" />
+		<input type="text" name="acousticv6" placeholder="acoustic_vector_6" required="required" />
+		
+        <button type="submit" class="btn btn-primary btn-block btn-large">Predict</button>
+    </form>
+
+   <br>
+   <br>
+   {{ prediction_text }}
+
+ </div>
+
+
+</body>
+</html>
